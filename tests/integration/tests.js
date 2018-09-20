@@ -24,7 +24,7 @@ describe('calculator functionality', function() {
     element(by.css('#number4')).click();
     element(by.css('#operator_multiply')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('8')
-  })
+  });
 
 //3.
 it('can multiple operations be strung together', function(){
@@ -36,7 +36,7 @@ it('can multiple operations be strung together', function(){
   element(by.css('#number8')).click();
   element(by.css('#operator_equals')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('10')
-})
+});
 
 //4.
 
@@ -54,7 +54,16 @@ it('can give expected output for large numbers', function(){
   element(by.css('#number9')).click();
   element(by.css('#operator_equals')).click();
   expect(running_total.getAttribute('value')).to.eventually.equal('97406784')
-})
+});
+
+it('can give expected output for negative results', function(){
+  running_total = element(by.css('#running_total'))
+  element(by.css('#number2')).click();
+  element(by.css('#operator_subtract')).click();
+  element(by.css('#number7')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('-5')
+});
 
 
 

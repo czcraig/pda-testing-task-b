@@ -37,27 +37,26 @@ describe('calculator', function () {
 
   it('can concatenate number clicks', function(){
     calculator.numberClick(1);
-    calculator.numberClick(2);
-    calculator.numberClick(3);
-    assert.equal(123, calculator.runningTotal);
+    calculator.numberClick(6);
+    assert.equal(16, calculator.runningTotal);
   })
 
   it('can chain multiple operations together', function(){
-    calculator.numberClick(1);
+    calculator.numberClick(5);
     calculator.operatorClick('+')
-    calculator.numberClick(1);
+    calculator.numberClick(3);
     calculator.operatorClick('=')
-    assert.equal(2, calculator.runningTotal);
+    assert.equal(calculator.runningTotal, 8);
   })
 
   it('can clear a click', function(){
-    calculator.numberClick(1);
+    calculator.numberClick(4);
     calculator.operatorClick('+')
-    calculator.numberClick(1);
-    calculator.clearClick()
     calculator.numberClick(2);
+    calculator.clearClick()
+    calculator.numberClick(5);
     calculator.operatorClick('=')
-    assert.equal(3, calculator.runningTotal);
+    assert.equal(calculator.runningTotal, 9);
   })
 
 

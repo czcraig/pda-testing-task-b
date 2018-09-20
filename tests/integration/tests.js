@@ -16,8 +16,8 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
   });
 
-
-  it('should update the display with the result of the operation after another operator is clicked', function(){
+//1.
+  it('should update the display with the running total after buttons are clicked', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number2')).click();
     element(by.css('#operator_multiply')).click();
@@ -28,6 +28,17 @@ describe('calculator functionality', function() {
 
 
 
+//3.
+it('can multiple operations be strung together', function(){
+  running_total = element(by.css('#running_total'))
+  element(by.css('#number3')).click();
+  element(by.css('#operator_subtract')).click();
+  element(by.css('#number1')).click();
+  element(by.css('#operator_add')).click();
+  element(by.css('#number8')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('10')
+})
 
 
 

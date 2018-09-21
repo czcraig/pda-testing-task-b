@@ -65,6 +65,23 @@ it('can give expected output for negative results', function(){
   expect(running_total.getAttribute('value')).to.eventually.equal('-5')
 });
 
+it('can give expected output for decimal results', function(){
+  running_total = element(by.css('#running_total'))
+  element(by.css('#number7')).click();
+  element(by.css('#operator_divide')).click();
+  element(by.css('#number2')).click();
+  element(by.css('#operator_equals')).click();
+  expect(running_total.getAttribute('value')).to.eventually.equal('3.5')
+});
 
+//5.
+it('should display Not a Numbrt when dividing by 0', function () {
+running_total = element(by.css('#running_total'));
+element(by.css('#number9')).click();
+element(by.css('#operator_divide')).click();
+element(by.css('#number0')).click();
+element(by.css('#operator_equals')).click();
+expect(running_total.getAttribute('value')).to.eventually.equal('NaN');
+});
 
 });
